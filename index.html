@@ -1,1 +1,43 @@
-Hello World
+<canvas id="myCanvas" width="600" height="400"></canvas>
+
+<script>
+  // Get a reference to the canvas element
+  var canvas = document.getElementById("myCanvas");
+
+  // Create a 2D drawing context
+  var ctx = canvas.getContext("2d");
+
+  // Set the frequency and amplitude
+  var frequency = 5;
+  var amplitude = 100;
+
+  // Set the initial x and y values
+  var x = 0;
+  var y = 0;
+
+  // Set the drawing interval
+  var interval = 10;
+
+  // Set the line color
+  ctx.strokeStyle = "red";
+
+  // Set the line width
+  ctx.lineWidth = 2;
+
+  // Set the starting point
+  ctx.moveTo(x, y);
+
+  // Start the drawing loop
+  setInterval(function() {
+    // Calculate the next x and y values
+    x += interval;
+    y = amplitude * Math.sin(x * frequency);
+
+    // Draw a line to the next point
+    ctx.lineTo(x, y);
+
+    // Stroke the line
+    ctx.stroke();
+  }, interval);
+</script>
+
